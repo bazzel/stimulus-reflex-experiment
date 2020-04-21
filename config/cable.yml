@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://redistogo:b3502abc9e226daa85b2de950c6999b0@porgy.redistogo.com:9108/" } %>
+  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
   channel_prefix: stimulus_reflex_experiment_production
