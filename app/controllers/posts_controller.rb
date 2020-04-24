@@ -5,7 +5,6 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-    @count = session[:count].to_i
   end
 
   # GET /posts/1
