@@ -19,8 +19,8 @@
       <td><%= link_to 'Show', post %></td>
       <td><%= link_to 'Edit', edit_post_path(post) %></td>
       <td>
-        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you
-        sure?' } %>
+        <%= link_to 'Destroy', '#', data: { confirm: 'Are you sure?',
+        controller: 'post', action: 'click->post#destroy', id: post.id } %>
       </td>
     </tr>
     <% end %>
@@ -30,10 +30,3 @@
 <br />
 
 <%= link_to 'New Post', new_post_path %>
-<a
-  href="#"
-  data-reflex="click->CounterReflex#increment"
-  data-step="1"
-  data-count="<%= @count.to_i %>"
-  >Increment <%= @count.to_i %></a
->

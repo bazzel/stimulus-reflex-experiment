@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CounterReflex < ApplicationReflex
+class PostReflex < ApplicationReflex
   # Add Reflex methods in this file.
   #
   # All Reflex instances expose the following properties:
@@ -20,7 +20,7 @@ class CounterReflex < ApplicationReflex
   #   end
   #
   # Learn more at: https://docs.stimulusreflex.com
-  def increment
-    @count = element.dataset[:count].to_i + element.dataset[:step].to_i
+  def destroy
+    Post.find(element.dataset[:id]).destroy
   end
 end

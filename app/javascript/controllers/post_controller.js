@@ -1,6 +1,6 @@
-import ApplicationController from './application_controller'
+import ApplicationController from './application_controller';
 
-/* This is the custom StimulusReflex controller for CounterReflex.
+/* This is the custom StimulusReflex controller for PostReflex.
  * Learn more at: https://docs.stimulusreflex.com
  */
 export default class extends ApplicationController {
@@ -10,14 +10,14 @@ export default class extends ApplicationController {
    *
    * Example:
    *
-   *   <a href="#" data-reflex="CounterReflex#example">Example</a>
+   *   <a href="#" data-reflex="PostReflex#example">Example</a>
    *
    * Arguments:
    *
    *   element - the element that triggered the reflex
    *             may be different than the Stimulus controller's this.element
    *
-   *   reflex - the name of the reflex e.g. "CounterReflex#example"
+   *   reflex - the name of the reflex e.g. "PostReflex#example"
    *
    *   error - error message from the server
    */
@@ -34,4 +34,14 @@ export default class extends ApplicationController {
   //   console.error('updateError', error);
   //   element.innerText = 'Update Failed!'
   // }
+  destroy(event) {
+    const {confirm: msg} = event.currentTarget.dataset;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (msg && confirm(msg)) {
+      this.stimulate('PostReflex#destroy');
+    }
+  }
 }
